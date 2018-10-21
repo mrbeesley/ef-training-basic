@@ -1,0 +1,6 @@
+C:\Users\mbees\source\repos\SamuraiApp\SamuraiApp.Domain\bin\Debug\SamuraiApp.Domain.dll
+C:\Users\mbees\source\repos\SamuraiApp\SamuraiApp.Domain\bin\Debug\SamuraiApp.Domain.pdb
+C:\Users\mbees\source\repos\SamuraiApp\SamuraiApp.Domain\obj\Debug\SamuraiApp.Domain.csprojAssemblyReference.cache
+C:\Users\mbees\source\repos\SamuraiApp\SamuraiApp.Domain\obj\Debug\SamuraiApp.Domain.csproj.CoreCompileInputs.cache
+C:\Users\mbees\source\repos\SamuraiApp\SamuraiApp.Domain\obj\Debug\SamuraiApp.Domain.dll
+C:\Users\mbees\source\repos\SamuraiApp\SamuraiApp.Domain\obj\Debug\SamuraiApp.Domain.pdb

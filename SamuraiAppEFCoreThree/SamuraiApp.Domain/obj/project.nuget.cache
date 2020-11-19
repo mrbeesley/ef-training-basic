@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gL7a/Erom85F6KDdOd/Xkv6G1sBixoOLEs4SbXthOWJ38Wqxwp9WVau3AHwEg03meoKfP5CsrzksISkyrLcApQ==",
+  "dgSpecHash": "q+uXkTGjaZpLZHP3LCqyiF881YL5z2s+v7hyQGMJsLPwjLrENrSzOvRZX0Jus/FYB6P1auRRcIx5QY8Lkwr5kg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\micha\\source\\repos\\SamuraiAppEFCoreThree\\SamuraiApp.Domain\\SamuraiApp.Domain.csproj",
+  "projectFilePath": "C:\\Users\\micha\\source\\repos\\ef-training-basic\\SamuraiAppEFCoreThree\\SamuraiApp.Domain\\SamuraiApp.Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

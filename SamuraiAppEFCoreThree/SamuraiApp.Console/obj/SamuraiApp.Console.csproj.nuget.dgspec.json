@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\micha\\source\\repos\\SamuraiAppEFCoreThree\\SamuraiApp.Console\\SamuraiApp.Console.csproj": {}
+    "C:\\Users\\micha\\source\\repos\\ef-training-basic\\SamuraiAppEFCoreThree\\SamuraiApp.Console\\SamuraiApp.Console.csproj": {}
   },
   "projects": {
-    "C:\\Users\\micha\\source\\repos\\SamuraiAppEFCoreThree\\SamuraiApp.Console\\SamuraiApp.Console.csproj": {
+    "C:\\Users\\micha\\source\\repos\\ef-training-basic\\SamuraiAppEFCoreThree\\SamuraiApp.Console\\SamuraiApp.Console.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\micha\\source\\repos\\SamuraiAppEFCoreThree\\SamuraiApp.Console\\SamuraiApp.Console.csproj",
+        "projectUniqueName": "C:\\Users\\micha\\source\\repos\\ef-training-basic\\SamuraiAppEFCoreThree\\SamuraiApp.Console\\SamuraiApp.Console.csproj",
         "projectName": "SamuraiApp.Console",
-        "projectPath": "C:\\Users\\micha\\source\\repos\\SamuraiAppEFCoreThree\\SamuraiApp.Console\\SamuraiApp.Console.csproj",
+        "projectPath": "C:\\Users\\micha\\source\\repos\\ef-training-basic\\SamuraiAppEFCoreThree\\SamuraiApp.Console\\SamuraiApp.Console.csproj",
         "packagesPath": "C:\\Users\\micha\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\micha\\source\\repos\\SamuraiAppEFCoreThree\\SamuraiApp.Console\\obj\\",
+        "outputPath": "C:\\Users\\micha\\source\\repos\\ef-training-basic\\SamuraiAppEFCoreThree\\SamuraiApp.Console\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\micha\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,11 +28,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\micha\\source\\repos\\SamuraiAppEFCoreThree\\SamuraiApp.Data\\SamuraiApp.Data.csproj": {
-                "projectPath": "C:\\Users\\micha\\source\\repos\\SamuraiAppEFCoreThree\\SamuraiApp.Data\\SamuraiApp.Data.csproj"
+              "C:\\Users\\micha\\source\\repos\\ef-training-basic\\SamuraiAppEFCoreThree\\SamuraiApp.Data\\SamuraiApp.Data.csproj": {
+                "projectPath": "C:\\Users\\micha\\source\\repos\\ef-training-basic\\SamuraiAppEFCoreThree\\SamuraiApp.Data\\SamuraiApp.Data.csproj"
               },
-              "C:\\Users\\micha\\source\\repos\\SamuraiAppEFCoreThree\\SamuraiApp.Domain\\SamuraiApp.Domain.csproj": {
-                "projectPath": "C:\\Users\\micha\\source\\repos\\SamuraiAppEFCoreThree\\SamuraiApp.Domain\\SamuraiApp.Domain.csproj"
+              "C:\\Users\\micha\\source\\repos\\ef-training-basic\\SamuraiAppEFCoreThree\\SamuraiApp.Domain\\SamuraiApp.Domain.csproj": {
+                "projectPath": "C:\\Users\\micha\\source\\repos\\ef-training-basic\\SamuraiAppEFCoreThree\\SamuraiApp.Domain\\SamuraiApp.Domain.csproj"
               }
             }
           }
@@ -65,14 +65,14 @@
         }
       }
     },
-    "C:\\Users\\micha\\source\\repos\\SamuraiAppEFCoreThree\\SamuraiApp.Data\\SamuraiApp.Data.csproj": {
+    "C:\\Users\\micha\\source\\repos\\ef-training-basic\\SamuraiAppEFCoreThree\\SamuraiApp.Data\\SamuraiApp.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\micha\\source\\repos\\SamuraiAppEFCoreThree\\SamuraiApp.Data\\SamuraiApp.Data.csproj",
+        "projectUniqueName": "C:\\Users\\micha\\source\\repos\\ef-training-basic\\SamuraiAppEFCoreThree\\SamuraiApp.Data\\SamuraiApp.Data.csproj",
         "projectName": "SamuraiApp.Data",
-        "projectPath": "C:\\Users\\micha\\source\\repos\\SamuraiAppEFCoreThree\\SamuraiApp.Data\\SamuraiApp.Data.csproj",
+        "projectPath": "C:\\Users\\micha\\source\\repos\\ef-training-basic\\SamuraiAppEFCoreThree\\SamuraiApp.Data\\SamuraiApp.Data.csproj",
         "packagesPath": "C:\\Users\\micha\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\micha\\source\\repos\\SamuraiAppEFCoreThree\\SamuraiApp.Data\\obj\\",
+        "outputPath": "C:\\Users\\micha\\source\\repos\\ef-training-basic\\SamuraiAppEFCoreThree\\SamuraiApp.Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\micha\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -89,8 +89,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\micha\\source\\repos\\SamuraiAppEFCoreThree\\SamuraiApp.Domain\\SamuraiApp.Domain.csproj": {
-                "projectPath": "C:\\Users\\micha\\source\\repos\\SamuraiAppEFCoreThree\\SamuraiApp.Domain\\SamuraiApp.Domain.csproj"
+              "C:\\Users\\micha\\source\\repos\\ef-training-basic\\SamuraiAppEFCoreThree\\SamuraiApp.Domain\\SamuraiApp.Domain.csproj": {
+                "projectPath": "C:\\Users\\micha\\source\\repos\\ef-training-basic\\SamuraiAppEFCoreThree\\SamuraiApp.Domain\\SamuraiApp.Domain.csproj"
               }
             }
           }
@@ -129,14 +129,14 @@
         }
       }
     },
-    "C:\\Users\\micha\\source\\repos\\SamuraiAppEFCoreThree\\SamuraiApp.Domain\\SamuraiApp.Domain.csproj": {
+    "C:\\Users\\micha\\source\\repos\\ef-training-basic\\SamuraiAppEFCoreThree\\SamuraiApp.Domain\\SamuraiApp.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\micha\\source\\repos\\SamuraiAppEFCoreThree\\SamuraiApp.Domain\\SamuraiApp.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\micha\\source\\repos\\ef-training-basic\\SamuraiAppEFCoreThree\\SamuraiApp.Domain\\SamuraiApp.Domain.csproj",
         "projectName": "SamuraiApp.Domain",
-        "projectPath": "C:\\Users\\micha\\source\\repos\\SamuraiAppEFCoreThree\\SamuraiApp.Domain\\SamuraiApp.Domain.csproj",
+        "projectPath": "C:\\Users\\micha\\source\\repos\\ef-training-basic\\SamuraiAppEFCoreThree\\SamuraiApp.Domain\\SamuraiApp.Domain.csproj",
         "packagesPath": "C:\\Users\\micha\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\micha\\source\\repos\\SamuraiAppEFCoreThree\\SamuraiApp.Domain\\obj\\",
+        "outputPath": "C:\\Users\\micha\\source\\repos\\ef-training-basic\\SamuraiAppEFCoreThree\\SamuraiApp.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\micha\\AppData\\Roaming\\NuGet\\NuGet.Config",

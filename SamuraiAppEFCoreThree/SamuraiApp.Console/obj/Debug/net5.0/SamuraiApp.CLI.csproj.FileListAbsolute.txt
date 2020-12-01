@@ -66,3 +66,8 @@ C:\Users\micha\source\repos\ef-training-basic\SamuraiAppEFCoreThree\SamuraiApp.C
 C:\Users\micha\source\repos\ef-training-basic\SamuraiAppEFCoreThree\SamuraiApp.Console\obj\Debug\net5.0\SamuraiApp.CLI.genruntimeconfig.cache
 C:\Users\micha\source\repos\ef-training-basic\SamuraiAppEFCoreThree\SamuraiApp.Console\bin\Debug\net5.0\Humanizer.dll
 C:\Users\micha\source\repos\ef-training-basic\SamuraiAppEFCoreThree\SamuraiApp.Console\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\micha\source\repos\ef-training-basic\SamuraiAppEFCoreThree\SamuraiApp.Console\bin\Debug\net5.0\Microsoft.Extensions.Configuration.dll
+C:\Users\micha\source\repos\ef-training-basic\SamuraiAppEFCoreThree\SamuraiApp.Console\bin\Debug\net5.0\Microsoft.Extensions.Configuration.Binder.dll
+C:\Users\micha\source\repos\ef-training-basic\SamuraiAppEFCoreThree\SamuraiApp.Console\bin\Debug\net5.0\Microsoft.Extensions.Logging.Configuration.dll
+C:\Users\micha\source\repos\ef-training-basic\SamuraiAppEFCoreThree\SamuraiApp.Console\bin\Debug\net5.0\Microsoft.Extensions.Logging.Console.dll
+C:\Users\micha\source\repos\ef-training-basic\SamuraiAppEFCoreThree\SamuraiApp.Console\bin\Debug\net5.0\Microsoft.Extensions.Options.ConfigurationExtensions.dll

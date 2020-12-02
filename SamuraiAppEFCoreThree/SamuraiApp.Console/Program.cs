@@ -94,5 +94,114 @@ namespace SamuraiApp.CLI
                 newContextInstance.SaveChanges();
             }
         }
+
+        private static void InsertNewSamuraiWithAQuote()
+        {
+            var samurai = new Samurai
+            {
+                Name = "Kambei Shimada",
+                Quotes = new List<Quote>
+                {
+                    new Quote {Text = "I've come to save you."}
+                }
+            };
+            _context.Samurais.Add(samurai);
+            _context.SaveChanges();
+        }
+
+        private static void AddQuoteToExistingSamuraiWhileTracked()
+        {
+            // When i retrieve the samurai its being tracked so it knows when i add a quote.
+            var samuari = _context.Samurais.FirstOrDefault();
+            samuari.Quotes.Add(new Quote { Text = "I bet you're happy that I've saved you!" });
+            _context.SaveChanges();
+        }
+
+        private static void AddQuoteToExistingSamuraiNotTracked(int samuraiId)
+        {
+            var samurai = _context.Samurais.Find(samuraiId);
+            samurai.Quotes.Add(new Quote
+            {
+                Text = "Now that I saved you, will you feed me dinnner?"
+            });
+            using (var newContext = new SamuraiContext())
+            {
+                // use attach here since we didn't update the samurai, just adding a quote
+                // if you use update it will work, but it will run and unnescessary query to update the samurai
+                newContext.Samurais.Attach(samurai);
+                newContext.SaveChanges();
+            }
+        }
+
+        private static void AddQuoteToExistingSamuraiNotTracked_SetForeignKey(int samuraiId)
+        {
+            var quote = new Quote
+            {
+                Text = "Now that I saved you, will you feed me dinnner?",
+                SamuraiId = samuraiId
+            };
+            using (var newContext = new SamuraiContext())
+            {
+                // you don't have to retriee the whole samurai to add a quote to it, just set the foreign key
+                // on the quote object and then save, next time the samurai is retrieved the quote will be theere
+                newContext.Quotes.Add(quote);
+                newContext.SaveChanges();
+            }
+        }
+
+        private static void EagerLoadSamuraiWithQuotes()
+        {
+            var samuraiWithQuotes = _context.Samurais
+                .Include(s => s.Quotes)
+                .ToList();
+            // to include further children chain a .ThenInclude to the quotes
+            // i.e. Samurais.Include(s => s.Quotes).ThenInclude(q => q.Translations)
+        }
+
+        private static void EagerLoadSamuraiWithQuotesAndClans()
+        {
+            var samuraiWithQuotes = _context.Samurais
+                .Include(s => s.Quotes)
+                .Include(s => s.Clan)
+                .ToList();
+        }
+
+        private static void RunQueryAndProjectSomeProperties()
+        {
+            //var someProperties = _context.Samurais
+            //    .Select(s => new { s.Id, s.Name, s.Quotes.Count })
+            //    .ToList();
+            var someProperties = _context.Samurais
+                .Select(s => new
+                {
+                    Samurai = s,
+                    HappyQuotes = s.Quotes.Where(q => q.Text.Contains("happy"))
+                })
+                .ToList();
+        }
+
+        private static void ExplicitLoadQuotes()
+        {
+            var samurai = _context.Samurais
+                .FirstOrDefault(s => s.Name.Contains("Julie"));
+            
+            _context
+                .Entry(samurai)
+                .Collection(s => s.Quotes)
+                .Load();
+
+            _context
+                .Entry(samurai)
+                .Reference(s => s.Horse)
+                .Load();
+        }
+
+        private static void FilteringWithRelatedData()
+        {
+            var samurais = _context.Samurais
+                .Where(s => s.Quotes
+                    .Any(q => q.Text.Contains("happy")))
+                .ToList();
+        }
     }
 }

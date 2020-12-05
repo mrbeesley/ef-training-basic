@@ -203,5 +203,67 @@ namespace SamuraiApp.CLI
                     .Any(q => q.Text.Contains("happy")))
                 .ToList();
         }
+
+        private static void ModifyingRelatedDataWhenTracked()
+        {
+            var samurai = _context.Samurais
+                .Include(s => s.Quotes)
+                .FirstOrDefault(s => s.Id == 2);
+            samurai.Quotes[0].Text = " did you hear that?";
+            _context.SaveChanges();
+        }
+
+        private static void ModifyingRelatedDataWhenNotTracked()
+        {
+            var samurai = _context.Samurais
+                .Include(s => s.Quotes)
+                .FirstOrDefault(s => s.Id == 2);
+            var quote = samurai.Quotes[0];
+            quote.Text += " Did you hear that again?";
+            using(var newContext = new SamuraiContext())
+            {
+                /// this will update all of the quotes note just the changed one.
+                /// because it will update everything in the graph related to the quote, 
+                /// which is the samurai and the full list of quotes
+                //newContext.Quotes.Update(quote);
+
+                /// this fixes it so only the updated quote will be saved
+                newContext.Entry(quote).State = EntityState.Modified;
+                newContext.SaveChanges();
+            }
+        }
+
+        private static void JoinBattleAndSamurai()
+        {
+            var sbJoin = new SamuraiBattle { SamuraiId = 1, Battleid = 3 };
+            _context.Add(sbJoin);
+            _context.SaveChanges();
+        }
+
+        private static void EnlistSamuraiIntoABattle()
+        {
+            var battle = _context.Battles.Find(1);
+            battle.SamuraiBattles
+                .Add(new SamuraiBattle { SamuraiId = 21 });
+            _context.SaveChanges();
+        }
+
+        private static void GetSamuraiWithBattles()
+        {
+            var samuraiWithBattle = _context.Samurais
+                .Include(s => s.SamuraiBattles)
+                .ThenInclude(s => s.Battle)
+                .FirstOrDefault(s => s.Id == 2);
+
+            var samuraiBattlesCleaner = _context.Samurais
+                .Where(s => s.Id == 2)
+                .Select(s => new
+                {
+                    Samurai = s,
+                    Battles = s.SamuraiBattles.Select(sb => sb.Battle)
+                })
+                .FirstOrDefault();
+
+        }
     }
 }

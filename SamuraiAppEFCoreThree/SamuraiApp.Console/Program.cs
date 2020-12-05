@@ -265,5 +265,106 @@ namespace SamuraiApp.CLI
                 .FirstOrDefault();
 
         }
+
+        private static void AddNewHorseToSamuraiUsingId()
+        {
+            // add a horse to a samurai without retrieving the samurai
+            var horse = new Horse { Name = "Scott", SamuraiId = 2 };
+            _context.Add(horse);
+            _context.SaveChanges();
+        }
+
+        private static void AddNewHorstToSamuraiObject()
+        {
+            var samurai = _context.Samurais.Find(3);
+            samurai.Horse = new Horse { Name = "Mr. Ed" };
+            _context.SaveChanges();
+        }
+
+        private static void AddNewHorseToSamuraiObject_Disconnected()
+        {
+            var samurai = _context.Samurais.AsNoTracking().FirstOrDefault(s => s.Id == 4);
+            samurai.Horse = new Horse { Name = "Black Beauty" };
+            using (var newContext = new SamuraiContext())
+            {
+                newContext.Attach(samurai);
+                newContext.SaveChanges();
+            }
+        }
+
+        /// <summary>
+        /// Getting data with a "clean" relationship
+        /// i.e. samurai only has a navigation property and no clan id reference
+        ///     and clan doesn't have a list of samurais
+        /// </summary>
+        private static void GetClanWithSamurais()
+        {
+            var clan = _context.Clans.Find(3);
+            var samuraisForClan = _context.Samurais.Where(s => s.Clan.Id == clan.Id).ToList();
+        }
+
+        /// <summary>
+        /// Example of Querying an entity from a View
+        /// Querying data is the same as querying from a table
+        /// obviosly the difference is the data is read only
+        /// since this is keyless you can't use find!
+        /// </summary>
+        private static void QuerySamuraiBattleStats()
+        {
+            var stats = _context.SamuraiBattleStats.ToList();
+        }
+
+        /// <summary>
+        /// Example of using the dbset to query with raw sql
+        /// RULES:
+        ///     1. Must return data for all properties of the entity type
+        ///     2. Column names must match mapped column names
+        ///     3. Query can't contain related data
+        ///     4. Can only be used for entities known by dbcontext
+        /// </summary>
+        private static void QuerySamuraiUsingRawSql()
+        {
+            var samurais = _context.Samurais
+                .FromSqlRaw("SELECT * FROM samurais")
+                .ToList();
+
+            string name = "Kikuchyo";
+            samurais = _context.Samurais
+                .FromSqlInterpolated($"SELECT * FROM Samurais where name = {name}")
+                .ToList();
+        }
+
+        /// <summary>
+        /// Example of querying data by calling a stored procedure
+        ///     1. Example using raw sql
+        ///     2. Example using interpolated
+        /// </summary>
+        private static void QueryUsingRawSqlStoredProcedure()
+        {
+            var text = "Happy";
+            var samurais = _context.Samurais
+                .FromSqlRaw(
+                    "EXEC dbo.SamuraiWhoSaidAWord {0}", text)
+                .ToList();
+
+            samurais = _context.Samurais
+                .FromSqlInterpolated($"EXEC dbo.SamuraiWhoSaidAWord {text}")
+                .ToList();
+        }
+
+        /// <summary>
+        /// Example of Execute a stored procedure not releated to the db context
+        ///     1. Raw sql example
+        ///     2. interpolated example
+        /// </summary>
+        /// <param name="samuraiId"></param>
+        private static void RemoveAllQuotesFromSamurai(int samuraiId)
+        {
+            var numberOfRowsImpacted = _context.Database
+                .ExecuteSqlRaw("EXEC DeleteQuotesForSamurai {0}", samuraiId);
+
+            numberOfRowsImpacted = _context.Database
+                .ExecuteSqlInterpolated($"EXEC DeleteQuotesForSamura {samuraiId}");
+        }
     }
 }

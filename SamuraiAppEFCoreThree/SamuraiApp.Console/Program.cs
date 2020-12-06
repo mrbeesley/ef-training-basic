@@ -1,18 +1,38 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Configuration;
 using SamuraiApp.Data;
 using SamuraiApp.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
 
 namespace SamuraiApp.CLI
 {
     class Program
     {
-        private static SamuraiContext _context = new SamuraiContext();
+        private static SamuraiContext _context;
+        public static IConfigurationRoot Configuration;
+
         static void Main(string[] args)
         {
-            _context.Database.EnsureCreated();
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(Path.Combine(AppContext.BaseDirectory))
+                .AddJsonFile("appsettings.json", optional: true);
+
+            Configuration = builder.Build();
+
+            var services = new ServiceCollection();
+            services.AddDbContext<SamuraiContext>(opt =>
+                opt.UseSqlServer(Configuration.GetConnectionString("SamuraiConnex"))
+                    .EnableSensitiveDataLogging()
+            );
+            var serviceProvider = services.BuildServiceProvider();
+            _context = serviceProvider.GetService<SamuraiContext>();
+
+
+            ////_context.Database.EnsureCreated(); // This was just for demonstration purposes, you wouldn't normally do this.
             //GetSamurais("Before add");
             //AddSamurai();
             InsertMultipleSamurais();

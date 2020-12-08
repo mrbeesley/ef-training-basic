@@ -106,13 +106,13 @@ namespace SamuraiApp.CLI
             // tells the context not to track the results of this query
             var battle = _context.Battles.AsNoTracking().FirstOrDefault();
             battle.EndDate = new DateTime(1560, 06, 30);
-            using(var newContextInstance = new SamuraiContext())
-            {
-                // the update method marks the item as modified
-                // this lets us know that we have made changes outside of what the context knows
-                newContextInstance.Battles.Update(battle);
-                newContextInstance.SaveChanges();
-            }
+            //using (var newContextInstance = new SamuraiContext())
+            //{
+            //    // the update method marks the item as modified
+            //    // this lets us know that we have made changes outside of what the context knows
+            //    newContextInstance.Battles.Update(battle);
+            //    newContextInstance.SaveChanges();
+            //}
         }
 
         private static void InsertNewSamuraiWithAQuote()
@@ -144,13 +144,13 @@ namespace SamuraiApp.CLI
             {
                 Text = "Now that I saved you, will you feed me dinnner?"
             });
-            using (var newContext = new SamuraiContext())
-            {
-                // use attach here since we didn't update the samurai, just adding a quote
-                // if you use update it will work, but it will run and unnescessary query to update the samurai
-                newContext.Samurais.Attach(samurai);
-                newContext.SaveChanges();
-            }
+            //using (var newContext = new SamuraiContext())
+            //{
+            //    // use attach here since we didn't update the samurai, just adding a quote
+            //    // if you use update it will work, but it will run and unnescessary query to update the samurai
+            //    newContext.Samurais.Attach(samurai);
+            //    newContext.SaveChanges();
+            //}
         }
 
         private static void AddQuoteToExistingSamuraiNotTracked_SetForeignKey(int samuraiId)
@@ -160,13 +160,13 @@ namespace SamuraiApp.CLI
                 Text = "Now that I saved you, will you feed me dinnner?",
                 SamuraiId = samuraiId
             };
-            using (var newContext = new SamuraiContext())
-            {
-                // you don't have to retriee the whole samurai to add a quote to it, just set the foreign key
-                // on the quote object and then save, next time the samurai is retrieved the quote will be theere
-                newContext.Quotes.Add(quote);
-                newContext.SaveChanges();
-            }
+            //using (var newContext = new SamuraiContext())
+            //{
+            //    // you don't have to retriee the whole samurai to add a quote to it, just set the foreign key
+            //    // on the quote object and then save, next time the samurai is retrieved the quote will be theere
+            //    newContext.Quotes.Add(quote);
+            //    newContext.SaveChanges();
+            //}
         }
 
         private static void EagerLoadSamuraiWithQuotes()
@@ -240,17 +240,17 @@ namespace SamuraiApp.CLI
                 .FirstOrDefault(s => s.Id == 2);
             var quote = samurai.Quotes[0];
             quote.Text += " Did you hear that again?";
-            using(var newContext = new SamuraiContext())
-            {
-                /// this will update all of the quotes note just the changed one.
-                /// because it will update everything in the graph related to the quote, 
-                /// which is the samurai and the full list of quotes
-                //newContext.Quotes.Update(quote);
+            //using(var newContext = new SamuraiContext())
+            //{
+            //    /// this will update all of the quotes note just the changed one.
+            //    /// because it will update everything in the graph related to the quote, 
+            //    /// which is the samurai and the full list of quotes
+            //    //newContext.Quotes.Update(quote);
 
-                /// this fixes it so only the updated quote will be saved
-                newContext.Entry(quote).State = EntityState.Modified;
-                newContext.SaveChanges();
-            }
+            //    /// this fixes it so only the updated quote will be saved
+            //    newContext.Entry(quote).State = EntityState.Modified;
+            //    newContext.SaveChanges();
+            //}
         }
 
         private static void JoinBattleAndSamurai()
@@ -305,11 +305,11 @@ namespace SamuraiApp.CLI
         {
             var samurai = _context.Samurais.AsNoTracking().FirstOrDefault(s => s.Id == 4);
             samurai.Horse = new Horse { Name = "Black Beauty" };
-            using (var newContext = new SamuraiContext())
-            {
-                newContext.Attach(samurai);
-                newContext.SaveChanges();
-            }
+            //using (var newContext = new SamuraiContext())
+            //{
+            //    newContext.Attach(samurai);
+            //    newContext.SaveChanges();
+            //}
         }
 
         /// <summary>
